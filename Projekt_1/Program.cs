@@ -26,14 +26,14 @@ class Program
             }
             else if (operácia == "štart")
             {
-                Console.Write("Zadajte názov vstupného súboru + jeho formát: ");
+                Console.Write("Zadajte názov vstupného súboru: ");
                 string inputFile = Console.ReadLine();
-                Console.Write("Zadajte názov výstupného súboru + jeho formát: ");
+                Console.Write("Zadajte názov výstupného súborut: ");
                 string outputFile = Console.ReadLine();
                 Console.Write("Zadajte typ vstupných dát (typ1 alebo typ2): ");
                 string formatType = Console.ReadLine().ToLower();
                 oper = 0;
-                string formatTypeB = formatType + ".txt";
+                string formatTypeB = formatType;
 
 
                 if (inputFile != formatTypeB)
@@ -47,10 +47,10 @@ class Program
 
 
 
-                    using (StreamReader reader = new StreamReader(inputFile))
+                    using (StreamReader reader = new StreamReader($"..\\..\\{inputFile}.txt"))
                     {
 
-                        using (StreamWriter writer = new StreamWriter(outputFile))
+                        using (StreamWriter writer = new StreamWriter($"..\\..\\{outputFile}.txt"))
                         {
                             string riadok = reader.ReadToEnd();
                             if (riadok != null)
@@ -139,7 +139,7 @@ class Program
                         }
 
                     }
-                    using (StreamWriter writer2 = new StreamWriter(inputFile))
+                    using (StreamWriter writer2 = new StreamWriter($"..\\..\\{inputFile}.txt"))
                     {
                         writer2.WriteLine("");
 
